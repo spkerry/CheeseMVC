@@ -1,0 +1,26 @@
+﻿@{
+}
+
+<h1>Remove single cheese</h1>
+
+@if (ViewBag.cheeses.Count == 0)
+{
+    <p>You got no cheese. <a asp-controller="Cheese" asp-action="Add">Add a cheese</a> or two before trying to remove any.</p>
+}
+
+else
+{
+    <form>
+        Remove a cheese from your list.
+        <select name="removeCheese" id="removeCheese">
+            @foreach(KeyValuePair<string, string> cheese in ViewBag.cheeses)
+            {
+                <option value="@cheese.Key">@cheese.Key</option>
+
+            }
+        </select>
+        <input type="submit"/>
+    </form>
+
+}
+
